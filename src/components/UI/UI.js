@@ -1,13 +1,15 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import getBubbleSortActions from '../../SortingAlgorithms/BubbleSort';
+import getSlectionSortActions from '../../SortingAlgorithms/SelectionSort';
 import './UI.css';
 
 
 const Action_Speed = 10;
 const No_of_Elements = 50;
 const Primary_colour = "#109de3";
-const Secondary_Colour = "#de1252"
+const Secondary_Colour = "#ff00cc";
+const Tertiary_Colour = "#d9e800";
 
 function UI() {
     const [ arr, setArr ] = useState([]);
@@ -26,7 +28,17 @@ function UI() {
                         arrayBars[element.idx].style.background = Secondary_Colour;
                     },i*Action_Speed);
                     break;
+                case "SelectMin":
+                    setTimeout(() => {
+                        arrayBars[element.idx].style.background = Tertiary_Colour;
+                    },i*Action_Speed);
+                    break;
                 case "UnSelect":
+                    setTimeout(() => {
+                        arrayBars[element.idx].style.background = Primary_colour;
+                    },i*Action_Speed);
+                    break;
+                case "UnSelectMin":
                     setTimeout(() => {
                         arrayBars[element.idx].style.background = Primary_colour;
                     },i*Action_Speed);
@@ -40,6 +52,15 @@ function UI() {
                         arrayBars[element.idx2].style.background = Secondary_Colour;
                     },i*Action_Speed);
                     break;
+                case "SwapMin":
+                    setTimeout(() => {
+                        var temp = arrayBars[element.idx1].style.height;
+                        arrayBars[element.idx1].style.height = arrayBars[element.idx2].style.height;
+                        arrayBars[element.idx2].style.height = temp;
+                        arrayBars[element.idx1].style.background = Primary_colour;
+                        arrayBars[element.idx2].style.background = Tertiary_Colour;
+                    },i*Action_Speed);
+                    break;
                 default:
                     console.log("Invalid Action");
                     break;
@@ -48,8 +69,14 @@ function UI() {
     }
 
     const bubbleSort = () => {
-        console.log("calling bubble sort");
+        console.log("calling Bubble sort");
         actions = getBubbleSortActions(arr);
+        animateActions(actions);
+    }
+
+    const selectionSort = () => {
+        console.log("calling Selection sort");
+        actions = getSlectionSortActions(arr);
         animateActions(actions);
     }
 
@@ -80,7 +107,7 @@ function UI() {
                     ))
                 }
             </div>
-            <button onClick={e => bubbleSort()} >Sort</button>
+            <button onClick={e => selectionSort()} >Sort</button>
         </div>
     )
 }
