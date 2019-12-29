@@ -72,7 +72,7 @@ const selectionSort = (arr) => {
 const getSlectionSortActions = (arr) => {
     var Actions = selectionSort(arr);
     return Actions;
-};
+}
 
 
 export default getSlectionSortActions;

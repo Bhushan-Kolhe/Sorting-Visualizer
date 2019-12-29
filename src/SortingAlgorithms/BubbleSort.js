@@ -17,8 +17,8 @@ const bubbleSort = (arr) => {
                 Actions.push(
                     {
                         action: 'Swap',
-                        idx1: j,
-                        idx2: j+1
+                        idx1: j+1,
+                        idx2: j
                     }
                 )
                 swap(arr, j, j+1);
@@ -37,6 +37,6 @@ const bubbleSort = (arr) => {
 const getBubbleSortActions = (arr) => {
     var Actions = bubbleSort(arr);
     return Actions;
-};
+}
 
 export default getBubbleSortActions;

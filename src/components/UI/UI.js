@@ -3,11 +3,12 @@ import { useState, useEffect } from 'react';
 import getBubbleSortActions from '../../SortingAlgorithms/BubbleSort';
 import getSlectionSortActions from '../../SortingAlgorithms/SelectionSort';
 import getInsertionSortActions from '../../SortingAlgorithms/InsertionSort';
+import getQuickSortActions from '../../SortingAlgorithms/QuickSort';
 import './UI.css';
 
 
-const Action_Speed = 10;
-const No_of_Elements = 50;
+const Action_Speed = 1;
+const No_of_Elements = 300;
 const Primary_colour = "#109de3";
 const Secondary_Colour = "#ff00cc";
 const Tertiary_Colour = "#d9e800";
@@ -87,6 +88,12 @@ function UI() {
         animateActions(actions);
     }
 
+    const quickSort = () => {
+        console.log("calling Quick sort");
+        actions = getQuickSortActions(arr);
+        animateActions(actions);
+    }
+
     useEffect( () => {
         var tempArr = []
         for(var i=0; i<len; i++)
@@ -107,14 +114,15 @@ function UI() {
                             background: Primary_colour,
                             width: "30px",
                             height: `${element}px`,
-                            border: "1px solid #FFF"
+                            border: "1px solid #FFF",
+                            color: "#fff"
                             }}
                           >
                          </div>
                     ))
                 }
             </div>
-            <button onClick={e => insertionSort()} >Sort</button>
+            <button onClick={e => quickSort()} >Sort</button>
         </div>
     )
 }

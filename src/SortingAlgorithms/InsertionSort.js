@@ -29,7 +29,7 @@ const InsertionSort = arr => {
 const getInsertionSortActions = arr => {
     var Actions = InsertionSort(arr);
     return Actions;
-};
+}
 
 
 export default getInsertionSortActions;
