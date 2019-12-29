@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import getBubbleSortActions from '../../SortingAlgorithms/BubbleSort';
 import getSlectionSortActions from '../../SortingAlgorithms/SelectionSort';
+import getInsertionSortActions from '../../SortingAlgorithms/InsertionSort';
 import './UI.css';
 
 
@@ -80,6 +81,12 @@ function UI() {
         animateActions(actions);
     }
 
+    const insertionSort = () => {
+        console.log("calling Insertion sort");
+        actions = getInsertionSortActions(arr);
+        animateActions(actions);
+    }
+
     useEffect( () => {
         var tempArr = []
         for(var i=0; i<len; i++)
@@ -107,7 +114,7 @@ function UI() {
                     ))
                 }
             </div>
-            <button onClick={e => selectionSort()} >Sort</button>
+            <button onClick={e => insertionSort()} >Sort</button>
         </div>
     )
 }
