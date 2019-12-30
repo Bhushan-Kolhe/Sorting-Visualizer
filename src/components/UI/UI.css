@@ -1,6 +1,21 @@
 #ArrayContainer {
+    padding-top: 5vh;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: flex-end;
+}
+
+#UI{
+    padding-top: 50px;
+}
+
+#Overlay{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 10000;
+    pointer-events: none;
 }

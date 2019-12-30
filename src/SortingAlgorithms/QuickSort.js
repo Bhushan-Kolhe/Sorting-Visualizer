@@ -23,8 +23,20 @@ const partition = (items, left, right) => {
             )
             Actions.push(
                 {
+                    action: "Select",
+                    idx: j
+                }
+            )
+            Actions.push(
+                {
                     action: "UnSelect",
                     idx: i
+                }
+            )
+            Actions.push(
+                {
+                    action: "UnSelect",
+                    idx: j
                 }
             )
             swap(items, i, j); //sawpping two elements
@@ -50,6 +62,7 @@ function quickSort(items, left, right) {
 }
 
 const getQuickSortActions = (arr) => {
+    Actions = [];
     quickSort(arr, 0, arr.length-1);
     return Actions;
 }
